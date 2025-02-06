@@ -1,8 +1,8 @@
 # eORCA1
 Instructions to compile and run a global circulation configuration with NEMO 4.2
 
-[!Note]
-Nemo 4.2 is incompatible with XIOS-2.5. This configuration has to be linked against Xios-trunk
+> [!IMPORTANT]  
+> Nemo 4.2 is incompatible with XIOS-2.5. This configuration has to be linked against Xios-trunk
 
 #### Compilation of the base cofiguration
 1) The eOrca1 configuration can be built starting from the shipped reference configuration `ORCA2_ICE_PISCES`. First, lets duplicate this configuration with the command
