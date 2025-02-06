@@ -11,7 +11,7 @@ Instructions to compile and run a global circulation configuration with NEMO 4.2
 ```
 where `-j 0` sets the number of processors for compilation to 0: with this peculiar choice the command `./makenemo` will only duplicate and rename the necessary files without compiling.
 
-2) Modify the `cpp_*.fcm`: the file `cfgs/OrcaDef1/cpp_OrcaDef1.fcm should contain the following line
+2) Modify the `cpp_*.fcm`: the file `cfgs/OrcaDef1/cpp_OrcaDef1.fcm` should contain the following line
 ```
 bld::tool::fppkeys   key_si3 key_xios key_qco key_isf
 ```
