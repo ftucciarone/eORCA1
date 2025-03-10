@@ -33,3 +33,7 @@ ln -sf $static_dir/input_fields/weights_reg05_bilinear.nc .
 #
 ln -sf $static_dir/initial_conditions/woce_temp_monthly_init_4p2.nc .
 ln -sf $static_dir/initial_conditions/woce_salt_monthly_init_4p2.nc .
+#
+# Forcings
+#
+ln -sf $static_dir/forcing_ORCA1/* .
