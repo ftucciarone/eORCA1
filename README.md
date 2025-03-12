@@ -22,6 +22,7 @@ bld::tool::fppkeys   key_si3 key_xios key_qco key_isf
 ```
 
 # Changes from 4.0 to 4.2 that are relevant for LU
+1) **Elimination of inner-domain pointers**
 ```shell
 /home/ftucciarone/ithaca/Orca1/nemo_4.2/cfgs/lu_Orca1/BLD/ppsrc/nemo/tlu_prj.f90:204:18:
 
@@ -46,3 +47,4 @@ where it is needed:
 - [x] `tlu_prj.F90`
 > [!TIP]
 > Could be interesting to see if those has been substituted by an inner-domain pointer wrt the 2-points halo
+2) **Change of `rn_rdt`**: it has been renamed `rDt` (and `r1_rDt` has been introduced)
