@@ -48,3 +48,11 @@ where it is needed:
 > [!TIP]
 > Could be interesting to see if those has been substituted by an inner-domain pointer wrt the 2-points halo
 2) **Change of `rn_rdt`**: it has been renamed `rDt` (and `r1_rDt` has been introduced)
+```shell
+/home/ftucciarone/ithaca/Orca1/nemo_4.2/cfgs/lu_Orca1/BLD/ppsrc/nemo/tlu.f90:369:37:
+
+  369 |          dt_delay = dt_delay / rn_rdt
+      |                                     1
+Error: Symbol ‘rn_rdt’ at (1) has no IMPLICIT type
+```
+3) numnam_ref and numnam_cfg have been changed??
