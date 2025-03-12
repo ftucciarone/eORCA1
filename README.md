@@ -55,4 +55,11 @@ where it is needed:
       |                                     1
 Error: Symbol ‘rn_rdt’ at (1) has no IMPLICIT type
 ```
+has been modified as
+```fortran
+         !
+         ! Set up the delay
+         !
+         dt_delay = dt_delay / rDt
+```
 3) numnam_ref and numnam_cfg have been changed??
