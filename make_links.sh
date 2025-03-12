@@ -1,4 +1,4 @@
-#!/bin//bash
+#!/bin/bash
 static_dir=/home/ftucciarone/ithaca/Orca1/data_repository
 
 #
