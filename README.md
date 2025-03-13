@@ -62,4 +62,4 @@ has been modified as
          !
          dt_delay = dt_delay / rDt
 ```
-3) `numnam_ref` and `numnam_cfg` have been changed?? Apparently yes, in the nemo4.2 source all the ```fortran REWIND(numnam_ref)``` and ```fortran REWIND(numnam_cfg)``` are commented out
+3) `numnam_ref` and `numnam_cfg` have been changed?? Apparently yes, in the nemo4.2 source all the `REWIND(numnam_ref)` and `REWIND(numnam_cfg)` are commented out
