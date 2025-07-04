@@ -53,11 +53,42 @@ This work is based on the configuration that has been described in
 whose data can be found in the Zenodo repository:
 > de Lavergne C., Rathore S., Madec G., Sallée J.-B., Ethe C., Nasser A., Millet B. and Vancoppenolle M.: _NEMO4.2 eORCA1 configuration files for stable millennial ocean simulations (1.0)_. 2024, [Data set]. Zenodo. https://doi.org/10.5281/zenodo.14041098
 
+As a first step, download the repository with `wget` and unzip it:
 ```shell
 cd $Root_dir
 wget https://zenodo.org/records/14041098/files/data_repository.zip
 unzip data_repository.zip
 ```
+```
+.
+└── $Root_dir/
+    ├── data_repository/
+    │   ├── code/ # Original code for the paper, not of interest for us
+    │   ├── initial_conditions/                # Initial conditions for Temperature and Salinity
+    │   │   ├── woce_salt_monthly_init_4p2.nc 
+    │   │   └── woce_temp_monthly_init_4p2.nc
+    │   ├── input_fields/                              # y
+    │   │   ├── domain_cfg.nc                          # Forcing to use
+    │   │   ├── eddy_viscosity_3D.nc                   # Forcing to use
+    │   │   ├── geothermal_heat_flux.nc                # Forcing to use
+    │   │   ├── merged_ESACCI_BIOMER4V1R1_CHL_REG05.nc # Forcing to use
+    │   │   ├── runoff-icb_DaiTrenberth_Depoorter.nc   # Forcing to use
+    │   │   ├── sss_climatology_for_restoring.nc       # Forcing to use
+    │   │   ├── weights_ghflux_bilinear.nc             # Forcing to use 
+    │   │   ├── weights_reg05_bilinear.nc              # Forcing to use
+    │   │   ├── zdfiwm_forcing_NEW.nc                  # Forcing to use 
+    │   │   ├── zdfiwm_forcing_OLD.nc                  # Forcing to use 
+    │   │   └── zdfiwm_forcing_TRA.nc                  # Forcing to use
+    │   ├── namelists/ # Original namelists for NEMO 4.2.2, not of interest for us
+    │   └── restart/ # Restart files 
+    │       ├── TRA_10001231_restart_icemod.nc # Ice Model restart
+    │       ├── TRA_10001231_restart_trc.nc    # Tracer Model restart
+    │       └── TRA_10001231_restart.nc        # Ocean Model restart
+    ├── data_repository.zip
+    └── nemo-5.0.1/       # Source code for NEMO version X.Y.Z
+```
+
+
 
 ## Compilation of the base cofiguration
 1) The eOrca1 configuration can be built starting from the shipped reference configuration `ORCA2_ICE_PISCES`. First, lets duplicate this configuration with the command
