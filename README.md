@@ -1,10 +1,23 @@
 # eORCA1
 Instructions to compile and run a global circulation configuration with NEMO 5.0.1
 
-## Download and (hopefully) compile NEMO
-Download the Nemo code from GitLab, this can be done 'checking out' the 5.0 or 5.0.1 release from GitLab as
+## First, create the folder for the project
+These lines first define the base directory (i.e. where the folder for the project will be created) and the project directory.
 ```shell
+export $Base_dir=/home/$USER/
+export $Proj_dir=eORCA1
+export $Root_dir=$Base_dir/$Proj_dir
+mkdir -p $Root_dir
+cd $Root_dir
+```
+This example creates a folder called `eORCA1` in the home directory of the current user. This folder will be the root folder (`$Root_dir`) for the rest of these instructions.
+
+## Download and (hopefully) compile NEMO
+Download the Nemo code from GitLab, this can be done 'checking out' the 5.0.1 release from GitLab as
+```shell
+cd $Root_dir
 git clone --branch 5.0.1 https://forge.nemo-ocean.eu/nemo/nemo.git nemo-5.0.1
+cd $Root_dir/nemo-5.0.1
 ```
 The [NEMO Ocean Engine Reference manual](https://zenodo.org/records/14515373) has been updated for version 5.0 and can be downloaded at [https://zenodo.org/records/14515373 (direct download)](https://zenodo.org/records/14515373/files/NEMO_manual.pdf?download=1). 
 
@@ -30,10 +43,12 @@ and then remove it if not needed
 ./makenemo -m 'auto' -r GYRE_PISCES -n 'MY_GYRE' -j 8 clean_config
 ```
 
-## Donwload the data repository (courtesy of Casimir de Lavergne [<img style="position:absolute; top:0px;" width="20px" src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" />](https://orcid.org/0000-0001-9267-7390))
+## Download the data repository (courtesy of Casimir de Lavergne [<img style="position:absolute; top:0px;" width="20px" src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" />](https://orcid.org/0000-0001-9267-7390))
 
 ```shell
+cd $Root_dir
 wget https://zenodo.org/records/14041098/files/data_repository.zip
+unzip data_repository.zip
 ```
 
 ## Compilation of the base cofiguration
