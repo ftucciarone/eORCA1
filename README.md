@@ -89,26 +89,30 @@ unzip data_repository.zip
 
 
 ## Compilation of the base cofiguration
+0) Define a name for the experiment:
+```shell
+export Cfg_name=eOrca1_exp01
+```
 1) The eOrca1 configuration can be built starting from the shipped reference configuration `ORCA2_ICE_PISCES`. First, lets duplicate this configuration with the command
 ```shell
-./makenemo -m 'auto' -r ORCA2_ICE_PISCES -n 'eOrca1' -j 0;
+./makenemo -m 'auto' -r ORCA2_ICE_PISCES -n $Cfg_name -j 0;
 ```
 where `-j 0` sets the number of processors for compilation to 0: with this peculiar choice the command `./makenemo` will only duplicate and rename the necessary files without compiling.
 
-2) Modify the `cpp_*.fcm`: the file `cfgs/OrcaDef1/cpp_OrcaDef1.fcm` should contain the following line
+2) Modify the `cpp_*.fcm`: the file `$Root_dir/nemo-5.0.1/cfgs/$Cfg_name/cpp_$(Cfg_name).fcm` should contain the following line
 ```
 bld::tool::fppkeys   key_si3 key_xios key_qco key_isf key_vco_1d3d key_RK3
 ```
 
 3) Compile the code
 ```shell
-./makenemo -m 'auto' -r ORCA2_ICE_PISCES -n 'eOrca1' -j 32;
+./makenemo -m 'auto' -r ORCA2_ICE_PISCES -n $Cfg_name -j 32;
 ```
 
 ## Linking the static files
 First, change the directory to the configuration experiment directory
 ```shell
-cd $Root_dir/nemo-5.0.1/cfgs/eORCA1/EXP00/
+cd $Root_dir/nemo-5.0.1/cfgs/$Cfg_name/EXP00/
 ```
 then create a shell executable named `make_links.sh` with the following content:
 ```shell
