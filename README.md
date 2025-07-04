@@ -76,7 +76,7 @@ unzip data_repository.zip
     │   │   ├── sss_climatology_for_restoring.nc       # Climatology SSS restoring
     │   │   ├── weights_ghflux_bilinear.nc             # On-the-fly interpolation weights 
     │   │   ├── weights_reg05_bilinear.nc              # On-the-fly interpolation weights
-    │   │   └── zdfiwm_forcing_*.nc                    # radiation of some sort? (only one needed)
+    │   │   └── zdfiwm_forcing_*.nc                    # Internal waves mixing (only one needed)
     │   ├── namelists/ # Original namelists for NEMO 4.2.2, not of interest for us
     │   └── restart/ # Restart files 
     │       ├── TRA_10001231_restart_icemod.nc # Ice Model restart
@@ -127,7 +127,7 @@ ln -sf $static_dir/restart/*.nc .
 
 # Rivers run-off
 ln -sf $static_dir/input_fields/runoff-icb_DaiTrenberth_Depoorter.nc .
-# Is this a radiation of some sort?
+# Internal waves mixing
 ln -sf $static_dir/input_fields/zdfiwm_forcing_TRA.nc .
 # Geothermal heat flux
 ln -sf $static_dir/input_fields/geothermal_heat_flux.nc .
