@@ -67,18 +67,16 @@ unzip data_repository.zip
     │   ├── initial_conditions/                # Initial conditions for Temperature and Salinity
     │   │   ├── woce_salt_monthly_init_4p2.nc 
     │   │   └── woce_temp_monthly_init_4p2.nc
-    │   ├── input_fields/                              # y
-    │   │   ├── domain_cfg.nc                          # Forcing to use
-    │   │   ├── eddy_viscosity_3D.nc                   # Forcing to use
-    │   │   ├── geothermal_heat_flux.nc                # Forcing to use
-    │   │   ├── merged_ESACCI_BIOMER4V1R1_CHL_REG05.nc # Forcing to use
-    │   │   ├── runoff-icb_DaiTrenberth_Depoorter.nc   # Forcing to use
-    │   │   ├── sss_climatology_for_restoring.nc       # Forcing to use
-    │   │   ├── weights_ghflux_bilinear.nc             # Forcing to use 
-    │   │   ├── weights_reg05_bilinear.nc              # Forcing to use
-    │   │   ├── zdfiwm_forcing_NEW.nc                  # Forcing to use 
-    │   │   ├── zdfiwm_forcing_OLD.nc                  # Forcing to use 
-    │   │   └── zdfiwm_forcing_TRA.nc                  # Forcing to use
+    │   ├── input_fields/                              # Static files
+    │   │   ├── domain_cfg.nc                          # Domain File
+    │   │   ├── eddy_viscosity_3D.nc                   # Eddy viscosity (3D)
+    │   │   ├── geothermal_heat_flux.nc                # Geothermal Heat Flux
+    │   │   ├── merged_ESACCI_BIOMER4V1R1_CHL_REG05.nc # Chlorophill I guess
+    │   │   ├── runoff-icb_DaiTrenberth_Depoorter.nc   # River run-off
+    │   │   ├── sss_climatology_for_restoring.nc       # Climatology SSS restoring
+    │   │   ├── weights_ghflux_bilinear.nc             # On-the-fly interpolation weights 
+    │   │   ├── weights_reg05_bilinear.nc              # On-the-fly interpolation weights
+    │   │   └── zdfiwm_forcing_*.nc                    # radiation of some sort? (only one needed)
     │   ├── namelists/ # Original namelists for NEMO 4.2.2, not of interest for us
     │   └── restart/ # Restart files 
     │       ├── TRA_10001231_restart_icemod.nc # Ice Model restart
@@ -106,3 +104,52 @@ bld::tool::fppkeys   key_si3 key_xios key_qco key_isf key_vco_1d3d key_RK3
 ```shell
 ./makenemo -m 'local' -r ORCA2_ICE_PISCES -n 'eOrca1' -j 32;
 ```
+
+## Linking the static files
+First, change the directory to the configuration experiment directory
+```shell
+cd $Root_dir/nemo-5.0.1/cfgs/eORCA1/EXP00/
+```
+then create a shell executable named `make_links.sh` with the following content:
+```shell
+#!/bin//bash
+static_dir=$Base_dir/$Proj_dir/data_repository
+
+#
+# Input domain file
+#
+ln -sf $static_dir/input_fields/domain_cfg.nc .
+
+#
+# Input restart files
+#
+ln -sf $static_dir/restart/*.nc .
+
+# Rivers run-off
+ln -sf $static_dir/input_fields/runoff-icb_DaiTrenberth_Depoorter.nc .
+# Is this a radiation of some sort?
+ln -sf $static_dir/input_fields/zdfiwm_forcing_TRA.nc .
+# Geothermal heat flux
+ln -sf $static_dir/input_fields/geothermal_heat_flux.nc .
+# Eddy viscosity (3D)
+ln -sf $static_dir/input_fields/eddy_viscosity_3D.nc .
+# Climatology SSS restoring
+ln -sf $static_dir/input_fields/sss_climatology_for_restoring.nc .
+# Chlorophill I guess
+ln -sf $static_dir/input_fields/merged_ESACCI_BIOMER4V1R1_CHL_REG05.nc .
+#
+# On-the-fly interpolation weights
+#
+ln -sf $static_dir/input_fields/weights_ghflux_bilinear.nc .
+ln -sf $static_dir/input_fields/weights_reg05_bilinear.nc .
+#
+# Initial conditions
+#
+ln -sf $static_dir/initial_conditions/woce_temp_monthly_init_4p2.nc .
+ln -sf $static_dir/initial_conditions/woce_salt_monthly_init_4p2.nc .
+```
+make it executable as 
+```shell
+chmod +x make_links.sh
+```
+and finally execute it as `./make_links.sh`. This will create links to the static files inside the experiment folder, so that the namelist will find all the necessary data.
