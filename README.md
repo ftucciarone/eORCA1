@@ -31,7 +31,7 @@ and then remove it if not needed
 ```
 
 ## Donwload the data repository (courtesy of Casimir de Lavergne)
-![<img src="https://orcid.org/assets/vectors/orcid.logo.icon.svg">]()
+[<img alt="alt_text" width="40px" src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" />](https://www.google.com/)
 ```shell
 wget https://zenodo.org/records/14041098/files/data_repository.zip
 ```
