@@ -30,7 +30,7 @@ and then remove it if not needed
 ./makenemo -m 'auto' -r GYRE_PISCES -n 'MY_GYRE' -j 8 clean_config
 ```
 
-## Donwload the data repository (courtesy of Casimir de Lavergne [<img style="position:relative; top:5px;" width="15px" src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" />](https://orcid.org/0000-0001-9267-7390))
+## Donwload the data repository (courtesy of Casimir de Lavergne [<img style="position:relative; top:50px;" width="15px" src="https://orcid.org/assets/vectors/orcid.logo.icon.svg" />](https://orcid.org/0000-0001-9267-7390))
 
 ```shell
 wget https://zenodo.org/records/14041098/files/data_repository.zip
