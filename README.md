@@ -49,6 +49,7 @@ and then remove it if not needed
 
 This work is based on the configuration that has been described in
 > de Lavergne C., Rathore S., Madec G., Sallée J.-B., Ethe C., Nasser A., Millet B. and Vancoppenolle M.: _Effects of improved tidal mixing in NEMO one-degree global ocean model_. ESS Open Archive . November 13, 2024. DOI: [10.22541/essoar.173152139.95978362/v1](https://doi.org/10.22541/essoar.173152139.95978362/v1)
+
 whose data can be found in the Zenodo repository:
 > de Lavergne C., Rathore S., Madec G., Sallée J.-B., Ethe C., Nasser A., Millet B. and Vancoppenolle M.: _NEMO4.2 eORCA1 configuration files for stable millennial ocean simulations (1.0)_. 2024, [Data set]. Zenodo. https://doi.org/10.5281/zenodo.14041098
 
