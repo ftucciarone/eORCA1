@@ -91,7 +91,7 @@ unzip data_repository.zip
 ## Compilation of the base cofiguration
 1) The eOrca1 configuration can be built starting from the shipped reference configuration `ORCA2_ICE_PISCES`. First, lets duplicate this configuration with the command
 ```shell
-./makenemo -m 'local' -r ORCA2_ICE_PISCES -n 'eOrca1' -j 0;
+./makenemo -m 'auto' -r ORCA2_ICE_PISCES -n 'eOrca1' -j 0;
 ```
 where `-j 0` sets the number of processors for compilation to 0: with this peculiar choice the command `./makenemo` will only duplicate and rename the necessary files without compiling.
 
@@ -102,7 +102,7 @@ bld::tool::fppkeys   key_si3 key_xios key_qco key_isf key_vco_1d3d key_RK3
 
 3) Compile the code
 ```shell
-./makenemo -m 'local' -r ORCA2_ICE_PISCES -n 'eOrca1' -j 32;
+./makenemo -m 'auto' -r ORCA2_ICE_PISCES -n 'eOrca1' -j 32;
 ```
 
 ## Linking the static files
