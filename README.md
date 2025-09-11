@@ -29,6 +29,10 @@ The [NEMO Ocean Engine Reference manual](https://zenodo.org/records/14515373) ha
 > ```
 > where `/path/to/HDF5` can be found with `h5pcc -showconfig`. The path to XIOS is actually the download folder of XIOS. This tool with create the architecture file `arch/arch-auto.fcm`.
 
+> [!WARNING]
+> ```
+> export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/lib/libhdf5
+> ```
 #### Test the installation trying to compile a simple configuration, e.g. the Gyre configuration:
 ```shell
 ./makenemo -m 'auto' -r GYRE_PISCES -n 'MY_GYRE' -j 8
