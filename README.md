@@ -4,9 +4,9 @@ Instructions to compile and run a global circulation configuration with NEMO 5.0
 ## First, create the folder for the project
 These lines first define the base directory (i.e. where the folder for the project will be created) and the project directory.
 ```shell
-export $Base_dir=/home/$USER/
-export $Proj_dir=eORCA1
-export $Root_dir=$Base_dir/$Proj_dir
+export Base_dir=/home/$USER/
+export Proj_dir=eORCA1
+export Root_dir=$Base_dir/$Proj_dir
 mkdir -p $Root_dir
 cd $Root_dir
 ```
