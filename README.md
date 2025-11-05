@@ -122,6 +122,7 @@ then create a shell executable named `make_links.sh` with the following content:
 ```shell
 #!/bin//bash
 static_dir=$Base_dir/$Proj_dir/data_repository
+forcing_dir=$static_dir/forcing_ORCA1/
 
 #
 # Input domain file
@@ -155,6 +156,10 @@ ln -sf $static_dir/input_fields/weights_reg05_bilinear.nc .
 #
 ln -sf $static_dir/initial_conditions/woce_temp_monthly_init_4p2.nc .
 ln -sf $static_dir/initial_conditions/woce_salt_monthly_init_4p2.nc .
+#
+# Forcings
+#
+ln -sf $forcing_dir/* .
 ```
 make it executable as 
 ```shell
