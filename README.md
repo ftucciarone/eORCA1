@@ -120,7 +120,7 @@ cd $Root_dir/nemo-5.0.1/cfgs/$Cfg_name/EXP00/
 ```
 then create a shell executable named `make_links.sh` with the following content:
 ```shell
-#!/bin//bash
+#!/bin/bash
 static_dir=$Base_dir/$Proj_dir/data_repository
 forcing_dir=$static_dir/forcing_ORCA1/
 
