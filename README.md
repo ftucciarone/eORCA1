@@ -121,8 +121,7 @@ cd $Root_dir/nemo-5.0.1/cfgs/$Cfg_name/EXP00/
 then create a shell executable named `make_links.sh` with the following content:
 ```shell
 #!/bin/bash
-static_dir=$Base_dir/$Proj_dir/data_repository
-forcing_dir=$static_dir/forcing_ORCA1/
+static_dir=/home/ftucciarone/ithaca/nemo-ensembleruns/input-eOrca1
 
 #
 # Input domain file
@@ -159,7 +158,7 @@ ln -sf $static_dir/initial_conditions/woce_salt_monthly_init_4p2.nc .
 #
 # Forcings
 #
-ln -sf $forcing_dir/* .
+ln -sf $static_dir/forcing_ORCA1/* .
 ```
 make it executable as 
 ```shell
